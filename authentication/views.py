@@ -29,6 +29,10 @@ class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
 
 
+# TokenRefreshView and TokenVerifyView are already provided by the library
+# We don't need to create them manually
+
+
 # Get All Users View
 class UserListAPIView(APIView):
     permission_classes = [IsAuthenticated]  # Only authenticated users can see the list of users

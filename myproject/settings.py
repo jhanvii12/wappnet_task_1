@@ -61,6 +61,8 @@ INSTALLED_APPS = [
     'drf_yasg',  # drf_yasg for Swagger 
     'rest_framework',
     'authentication',
+    'notifications',
+    'rest_framework_simplejwt',
 ]
 
 MIDDLEWARE = [
