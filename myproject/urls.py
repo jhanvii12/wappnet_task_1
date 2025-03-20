@@ -20,6 +20,7 @@ from django.urls import path, include
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -32,6 +33,8 @@ schema_view = get_schema_view(
     ),
     public=True,
     permission_classes=(permissions.AllowAny,),
+    # authentication_classes=[]  # Allow it to be publicly viewable
+    authentication_classes=(SessionAuthentication, BasicAuthentication),
 )
 
 urlpatterns = [
@@ -42,3 +45,12 @@ urlpatterns = [
     path('notifications/', include('notifications.urls')),
 ]
 
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header'
+        }
+    },
+}
