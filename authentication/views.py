@@ -55,20 +55,3 @@ class UserChangePasswordAPIView(APIView):
             user.save()  # Save the user with the new password
             return Response({'message': 'Password changed successfully'})
         return Response({'error': 'Password not provided'}, status=status.HTTP_400_BAD_REQUEST)
-
-# from drf_yasg.utils import swagger_auto_schema
-# from drf_yasg import openapi
-
-# class UserRegistrationAPIView(APIView):
-#     permission_classes = [AllowAny]
-
-#     # @swagger_auto_schema(
-#     #     request_body=UserSerializer,
-#     #     responses={201: 'User registered successfully', 400: 'Bad Request'}
-#     # )
-#     def post(self, request):
-#         serializer = UserSerializer(data=request.data)
-#         if serializer.is_valid():
-#             user = serializer.save()
-#             return Response({'message': 'User registered successfully', 'user_id': user.id}, status=status.HTTP_201_CREATED)
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

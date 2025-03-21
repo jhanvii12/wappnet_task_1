@@ -60,9 +60,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'drf_yasg',  # drf_yasg for Swagger 
     'rest_framework',
+    'rest_framework_simplejwt',
     'authentication',
     'notifications',
-    'rest_framework_simplejwt',
+    'task',
 ]
 
 MIDDLEWARE = [
